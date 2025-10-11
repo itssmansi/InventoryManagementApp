@@ -24,7 +24,7 @@ public class DBConnection {
         return conn;
     }
 
-    // Optional: Close connection safely
+    //Closing connection safely
     public static void closeConnection(Connection conn) {
         if (conn != null) {
             try {
