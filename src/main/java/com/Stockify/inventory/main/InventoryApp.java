@@ -17,10 +17,10 @@ public class InventoryApp {
         if (conn != null) {
             System.out.println("Connection object is not null. Test passed!");
 
-            // Optional: run a simple query to check
+            // Here we run a simple query to check if connection is working
             try {
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SHOW TABLES;"); // shows tables in DB
+                ResultSet rs = stmt.executeQuery("SHOW TABLES;"); // shows tables in DB inventory
                 System.out.println("Tables in the database:");
                 while (rs.next()) {
                     System.out.println(rs.getString(1));
