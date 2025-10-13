@@ -2,6 +2,17 @@
 
 -- USE Inventory;
 
+-- CREATE TABLE supplier(
+-- supplier_id INT AUTO_INCREMENT PRIMARY KEY,
+-- supplier_name VARCHAR(50),
+-- category VARCHAR(50),
+-- company_name VARCHAR(50),
+-- contact_number VARCHAR(15),
+-- email VARCHAR(100),
+-- address VARCHAR(255)
+-- );
+
+
 -- CREATE TABLE items(
 -- item_id INT AUTO_INCREMENT PRIMARY KEY,
 -- item_name VARCHAR(100) NOT NULL,
@@ -13,16 +24,6 @@
 -- FOREIGN KEY (supplier_id) REFERENCES supplier(supplier_id) 
 -- ON DELETE RESTRICT
 -- ON UPDATE CASCADE
--- );
-
--- CREATE TABLE supplier(
--- supplier_id INT AUTO_INCREMENT PRIMARY KEY,
--- supplier_name VARCHAR(50),
--- category VARCHAR(50),
--- company_name VARCHAR(50),
--- contact_number VARCHAR(15),
--- email VARCHAR(100),
--- address VARCHAR(255)
 -- );
 
 -- NSERTING VALUES IN SUPPLIER TABLE
