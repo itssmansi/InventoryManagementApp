@@ -11,15 +11,22 @@ import java.util.ArrayList;
 
 public class LowStockAlert {
 
-    private static final int THRESHOLD = 5; 
+    private static final int THRESHOLD = 5; // low-stock limit
+    private Connection conn;
+
+    // Constructor to initialize connection
+    public LowStockAlert() {
+        conn = DBConnection.getConnection();
+        if (conn != null) {
+            System.out.println("LowStockAlert: DB Connection established.");
+        }
+    }
 
     public ArrayList<Products> getLowStockProducts() {
         ArrayList<Products> lowStockList = new ArrayList<>();
-        String low_stock_alert_query = "SELECT * FROM items WHERE quantity <= ?";
+        String query = "SELECT * FROM items WHERE quantity <= ?";
 
-        try (Connection conn = DBConnection.getConnection();
-                PreparedStatement pst = conn.prepareStatement(low_stock_alert_query)) {
-
+        try (PreparedStatement pst = conn.prepareStatement(query)) {
             pst.setInt(1, THRESHOLD);
             ResultSet rs = pst.executeQuery();
 
@@ -40,5 +47,10 @@ public class LowStockAlert {
         }
 
         return lowStockList;
+    }
+
+    // Optional: method to close connection when done
+    public void closeConnection() {
+        DBConnection.closeConnection(conn);
     }
 }
