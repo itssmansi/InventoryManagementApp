@@ -11,8 +11,7 @@ import java.util.ArrayList;
 
 public class LowStockAlert {
 
-    private static final int THRESHOLD = 5; // You can change the low-stock limit
-
+    private static final int THRESHOLD = 5; 
 
     public ArrayList<Products> getLowStockProducts() {
         ArrayList<Products> lowStockList = new ArrayList<>();
