@@ -69,7 +69,7 @@ public class Products{
     }
 
     public int getSupplier_id() {
-        return quantity;
+        return supplier_id;
     }
 
     public void setSupplier_id(int supplier_id) {

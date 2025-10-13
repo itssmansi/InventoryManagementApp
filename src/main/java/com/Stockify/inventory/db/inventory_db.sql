@@ -1,6 +1,6 @@
 -- CREATE DATABASE Inventory;
 
--- USE Inventory;
+USE Inventory;
 
 -- CREATE TABLE supplier(
 -- supplier_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -56,3 +56,5 @@
 
 
 -- SELECT * FROM items;
+
+DESCRIBE items;
