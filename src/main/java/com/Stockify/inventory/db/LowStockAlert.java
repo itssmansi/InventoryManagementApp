@@ -49,7 +49,7 @@ public class LowStockAlert {
         return lowStockList;
     }
 
-    // Optional: method to close connection when done
+    //method to close connection when done
     public void closeConnection() {
         DBConnection.closeConnection(conn);
     }
