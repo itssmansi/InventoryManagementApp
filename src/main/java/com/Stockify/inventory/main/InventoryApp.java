@@ -8,18 +8,18 @@ import com.Stockify.inventory.gui.ManageProductsGUI;
 
 public class InventoryApp {
     public static void main(String[] args) {
-        //     javax.swing.SwingUtilities.invokeLater(new Runnable() {
-        //     public void run() {
-        //         new ManageProductsGUI().setVisible(true);
-        //     }
-        //     });
+            // javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            // public void run() {
+            //     new ManageProductsGUI().setVisible(true);
+            // }
+            // });
         // javax.swing.SwingUtilities.invokeLater(() -> new LoginPage());
 
-        // new LowStockAlertGUI();
+        new LowStockAlertGUI();
 
-        SwingUtilities.invokeLater(() -> {
-            LoginPage frame = new LoginPage();
-            frame.setVisible(true);
-        });
+        // SwingUtilities.invokeLater(() -> {
+        //     LoginPage frame = new LoginPage();
+        //     frame.setVisible(true);
+        // });
     }
 }
