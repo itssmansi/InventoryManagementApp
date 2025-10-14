@@ -35,7 +35,7 @@ public class ManageProducts {
 
             pst.executeUpdate();
         } catch (SQLException e) { //can use (Exception e) too
-            e.printStackTrace();
+            System.err.println("Failed to add product: " + e.getMessage());
         }
     }
     
@@ -52,7 +52,7 @@ public class ManageProducts {
             pst.setInt(7, p.getItem_id());
             pst.executeUpdate();
         } catch (SQLException e) { // can use (Exception e) too
-            e.printStackTrace();
+            System.err.println("Failed to update product: " + e.getMessage());
         }
     }
 
@@ -65,7 +65,7 @@ public class ManageProducts {
 
             pst.executeUpdate();
         } catch (SQLException e) { // can use (Exception e) too
-            e.printStackTrace();
+            System.err.println("Failed to delete product: " + e.getMessage());
         }
     }
 
@@ -92,7 +92,7 @@ public class ManageProducts {
                 list.add(p);
             } 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Failed to show product: " + e.getMessage());
         }
         return list;
     }

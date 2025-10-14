@@ -1,48 +1,25 @@
 package com.Stockify.inventory.main;
 
-import com.Stockify.inventory.db.DBConnection;
-
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import com.Stockify.inventory.gui.DemoForm;
+import javax.swing.SwingUtilities;
+import com.Stockify.inventory.backend.LoginPage;
+import com.Stockify.inventory.gui.LowStockAlertGUI;
+import com.Stockify.inventory.gui.ManageProductsGUI;
 
 
 public class InventoryApp {
     public static void main(String[] args) {
-        // try {
-        //     // Try to load the MySQL driver
-        //     Class.forName("com.mysql.cj.jdbc.Driver");
-        //     System.out.println("MySQL JDBC Driver is found! Test passed.");
-        // } catch (ClassNotFoundException e) {
-        //     System.out.println("MySQL JDBC Driver not found!");
-        //     e.printStackTrace();
-        // }
+        //     javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        //     public void run() {
+        //         new ManageProductsGUI().setVisible(true);
+        //     }
+        //     });
+        // javax.swing.SwingUtilities.invokeLater(() -> new LoginPage());
 
-        new DemoForm();
-        Connection conn = DBConnection.getConnection();
+        // new LowStockAlertGUI();
 
-        if (conn != null) {
-            System.out.println("Connection object is not null. Test passed!");
-
-            // Here we run a simple query to check if connection is working
-            try {
-                Statement stmt = conn.createStatement();
-                int count = stmt.executeUpdate("INSERT INTO items (item_name, price, category, quantity, brand, supplier_id) \r\n" + //
-                                        "VALUES ('TV', 95000.00, 'Electronics', 8, 'Sony', '1')");
-                // ResultSet rs = stmt.executeQuery("SHOW TABLES;"); // shows tables in DB inventory
-                System.out.println(count + "row/s affected");
-                // while (rs.next()) {
-                //     System.out.println(rs.getString(1));
-                // }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                DBConnection.closeConnection(conn);
-            }
-        } else {
-            System.out.println("Connection failed!");
-        }
+        SwingUtilities.invokeLater(() -> {
+            LoginPage frame = new LoginPage();
+            frame.setVisible(true);
+        });
     }
 }

@@ -55,6 +55,6 @@ USE Inventory;
 -- ('Headphones', 1800.00, 'Electronics', 40, 'Sony', 4);
 
 
--- SELECT * FROM items;
+SELECT * FROM items;
 
-DESCRIBE items;
+-- DESCRIBE items;
