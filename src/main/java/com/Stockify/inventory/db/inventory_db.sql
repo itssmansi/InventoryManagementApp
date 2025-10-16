@@ -1,6 +1,7 @@
 -- CREATE DATABASE Inventory;
 
 USE Inventory;
+SHOW TABLES;
 
 -- CREATE TABLE supplier(
 -- supplier_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -55,6 +56,41 @@ USE Inventory;
 -- ('Headphones', 1800.00, 'Electronics', 40, 'Sony', 4);
 
 
-SELECT * FROM items;
+CREATE TABLE IF NOT EXISTS categories (
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_code VARCHAR(20) UNIQUE,
+    name VARCHAR(100) NOT NULL,
+    description TEXT
+);
 
+INSERT INTO categories (category_code, name, description) VALUES
+('ELEC', 'Electronics', 'Electronic devices and components'),
+('STAT', 'Stationery', 'Office and school supplies'),
+('CLOTH', 'Clothing', 'Apparel and fashion items'),
+('BOOK', 'Books', 'Educational and recreational books'),
+('TOOL', 'Tools', 'Hardware and construction tools');
+
+CREATE OR REPLACE VIEW low_stock_items AS
+SELECT 
+    i.item_id,
+    i.item_name,
+    i.price,
+    i.category,
+    i.quantity,
+    i.brand,
+    i.supplier_id,
+    s.company_name as supplier_name
+FROM items i
+LEFT JOIN supplier s ON i.supplier_id = s.supplier_id
+WHERE i.quantity <= 5;
+
+CREATE OR REPLACE VIEW inventory_summary AS
+SELECT 
+    COUNT(*) as total_items,
+    SUM(quantity) as total_quantity,
+    SUM(price * quantity) as total_value,
+    COUNT(CASE WHEN quantity <= 5 THEN 1 END) as low_stock_count
+FROM items;
+
+SELECT * FROM items;
 -- DESCRIBE items;
