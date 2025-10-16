@@ -9,7 +9,7 @@ public class DBConnection {
     // Change these according to your MySQL setup
     private static final String URL = "jdbc:mysql://localhost:3306/inventory";
     private static final String USER = "root";        // your MySQL username
-    private static final String PASSWORD = "toor_to_sql_108"; // your MySQL password
+    private static final String PASSWORD = "mj8@2004"; // your MySQL password
 
     // Method to get connection
     public static Connection getConnection() {
